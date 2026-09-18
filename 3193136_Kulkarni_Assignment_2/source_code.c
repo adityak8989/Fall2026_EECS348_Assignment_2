@@ -303,6 +303,12 @@ int main(void) {                               // program entry point
         */
         line[strcspn(line, "\r\n")] = '\0';       // strip the trailing newline (and \r on Windows) from the line
 
+        int len = strlen(line);
+while (len > 0 && (line[len - 1] == ' ' || line[len - 1] == '\t')) {
+    line[len - 1] = '\0';
+    len--;
+}       // strip the trailing newline (and \r on Windows) from the line
+
         /*
             Ignore blank lines.
         */
